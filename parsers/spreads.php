@@ -9,56 +9,59 @@
 	// prevent caching
 	header('Cache-Control: no-cache');
 
-	$page = file("http://www.covers.com/Sports/NFL/Odds/Matchups/1/SPREAD/competition/Vegas/ML");
+	$headers = [
+		'http' => [
+			'header' => implode("\r\n", [
+				"Host: io.oddsshark.com",
+				"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:56.0) Gecko/20100101 Firefox/56.0",
+				"Accept: */*",
+				"Accept-Language: en-US,en;q=0.5",
+				"Accept-Encoding: gzip, deflate",
+				"Referer: http://www.oddsshark.com/",
+				"origin: http://www.oddsshark.com",
+				"Connection: keep-alive"
+			])
+		]
+	];
+
+	$context = stream_context_create($headers);
+
+	$page = file_get_contents("http://io.oddsshark.com/ticker/nfl", false, $context);
 
 	if ($page === false) {
 		exit(-1);
 	}
 
-	$gamePattern = '/<tr class=".*?conferenceRow">(.*?)<\/tr>/';
-	$teamsPattern = '/<span class="cover-CoversOdds-tableTeamLink"><a.*?>\s+(.*?)\s+<\/a><\/span>/';
-	$dateTimePattern = '/<span class="cover-CoversOdds-tableTime">(.*?)\s+ET.*?<\/span>/';
-	$spreadPattern = '/<div class="cover-CoversOdds-odds-middle"><span title=".*?" class="covers-CoversOdds-topOddsHome">(.*?)<\/span><span>.*?<\/span><\/div>/';
+	$oddsJson = json_decode($page);
 
-	if (sizeof($page) != 0) {
-		$pageLine = "";
-		foreach ($page as $line) {
-			$line = rtrim($line, "\r\n");
-			$pageLine .= $line;
-		}
-		$pageLine = preg_replace('/>\s*</', '><', $pageLine);
+	if (count($oddsJson->matchups) != 0) {
+		foreach ($oddsJson->matchups as $game) {
+			if ($game->type != 'matchup') {
+				continue;
+			}
 
-		preg_match_all($gamePattern, $pageLine, $gameMatch);
-
-		foreach ($gameMatch[0] as $game) {
 			$query = "NULL";
 			
-			preg_match_all($teamsPattern, $game, $teamsMatch);
-			$awayTeam = normalizeAbbreviation(trim($teamsMatch[1][0]));
-			$homeTeam = normalizeAbbreviation(trim($teamsMatch[1][1]));
+			$date = $game->event_date;
+			$awayTeam = normalizeAbbreviation($game->away_short_name);
+			$homeTeam = normalizeAbbreviation($game->home_short_name);
+			$spread = $game->home_odds;
 
-			preg_match($spreadPattern, $game, $spreadMatch);
-
-			if (count($spreadMatch) > 0) {
-				$spread = trim($spreadMatch[1]);
-				if ($spread == 'pk') {
-					$spread = 0.5;
-				}
-				else if (preg_match('/\.5/', $spread)) {
-					$spread = floatval($spread);
-				}
-				else {
-					$spread = floatval($spread) + 0.5;
-				}
-			}
-			else {
+			if ($spread === null) {
 				$spread = 'NULL';
 			}
+			else if ($spread === 0) {
+				$spread = 0.5;
+			}
+			else if ($spread - floor($spread) > 0) {
+				$spread = floatval($spread);
+			}
+			else {
+				$spread = floatval($spread) + 0.5;
+			}
 
-			preg_match($dateTimePattern, $game, $dateTimeMatch);
-			$dateTime = trim($dateTimeMatch[1]);
-			$startTime = date('Y-m-d H:i:s', strtotime($dateTime));
-			$startTimeUtc = gmdate('Y-m-d H:i:s', strtotime($dateTime));
+			$startTime = date('Y-m-d H:i:s', strtotime($date));
+			$startTimeUtc = gmdate('Y-m-d H:i:s', strtotime($date));
 
 			if (($argc > 1) && ($argv[1] == "preview")) {
 			}
@@ -66,7 +69,7 @@
 				continue;
 			}
 
-			$week = getweek(strtotime($dateTime . " " . ($season + (preg_match('/Jan/', $dateTime) ? 1 : 0))));
+			$week = getweek(strtotime($date . " " . ($season + (preg_match('/-01-/', $date) ? 1 : 0))));
 			$query = "CALL update_game('{$homeTeam}', '{$awayTeam}', {$season}, {$week}, '{$startTimeUtc}', NULL, NULL, {$spread});";
 
 			if ($query != "NULL") {

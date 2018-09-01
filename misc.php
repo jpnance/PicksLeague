@@ -125,14 +125,16 @@
 	);
   
 	function normalizeAbbreviation($abbreviation) {
-		if ($abbreviation == 'JAC') {
-			return 'JAX';
-		}
-		else if ($abbreviation == 'LA') {
-			return 'LAR';
-		}
-		else {
-			return $abbreviation;
+		switch ($abbreviation) {
+			case 'GNB': return 'GB'; break;
+			case 'JAC': return 'JAX'; break;
+			case 'KAN': return 'KC'; break;
+			case 'LA': return 'LAR'; break;
+			case 'NOR': return 'NO'; break;
+			case 'NWE': return 'NE'; break;
+			case 'SFO': return 'SF'; break;
+			case 'TAM': return 'TB'; break;
+			default: return $abbreviation;
 		}
 	}
 
