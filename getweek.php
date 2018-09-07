@@ -21,15 +21,15 @@
 			//$diff = $time - mktime(0,0,0,9,3,2014);
 			//$diff = $time - mktime(0,0,0,9,9,2015);
 			//$diff = $time - mktime(0,0,0,9,7,2016);
-			$diff = $time - mktime(0,0,0,9,6,2017);
+			//$diff = $time - mktime(0,0,0,9,6,2017);
+			$diff = $time - mktime(0,0,0,9,5,2018);
 
 			// How many days we've gone since the start
 			$days = intval($diff / 86400);
 		}
 		if (isset($days) && (($days < 0) || (isset($week) && ($week <= 0)))) {
 			// Let's just ignore the preseason for the immediate future.
-			//$week = 0;
-			$week = 1;
+			$week = 0;
 		}
 		else {
 			if (isset($days)) {
