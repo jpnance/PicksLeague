@@ -10,24 +10,21 @@
 	// prevent caching
 	header('Cache-Control: no-cache');
 
-	$scores = file_get_contents('http://www.nfl.com/liveupdate/scorestrip/ss.xml');
+	$scores = json_decode(file_get_contents('http://www.nfl.com/liveupdate/scores/scores.json'));
+	$dates = array_keys((array) $scores);
 
-	$weekSeasonPattern = '/<gms .*?w="(\d\d?)".*?y="(\d\d\d\d)".*?>/';
-	preg_match($weekSeasonPattern, $scores, $weekSeasonMatches);
-	$week = intval($weekSeasonMatches[1]);
-	$season = intval($weekSeasonMatches[2]);
+	foreach ($dates as $date) {
+		$game = $scores->{$date};
+		$week = getweek(strtotime(substr($date, 0, 8)));
 
-	$gamePattern = '/<g .*?q="FO?".*?h="(.*?)".*?hs="(\d\d?)".*?v="(.*?)".*?vs="(\d\d?)".*?\/>/';
-	preg_match_all($gamePattern, $scores, $gameMatches);
+		if ($game->qtr != 'Final') {
+			continue;
+		}
 
-	foreach ($gameMatches[0] as $i => $gameMatch) {
-		$awayTeam = $gameMatches[3][$i];
-		$awayScore = doubleval($gameMatches[4][$i]);
-		$homeTeam = $gameMatches[1][$i];
-		$homeScore = doubleval($gameMatches[2][$i]);
-
-		$awayTeam = normalizeAbbreviation($awayTeam);
-		$homeTeam = normalizeAbbreviation($homeTeam);
+		$awayTeam = normalizeAbbreviation($game->away->abbr);
+		$awayScore = $game->away->score->T;
+		$homeTeam = normalizeAbbreviation($game->home->abbr);
+		$homeScore = $game->home->score->T;
 
 		$query = "CALL update_game('" . $homeTeam . "', '" . $awayTeam . "', " . $season . ", " . $week . ", NULL, " . $homeScore . ", " . $awayScore . ", NULL);";
 
@@ -38,5 +35,4 @@
 			echo $query . "\n"; 
 		}
 	}
-
 ?>
