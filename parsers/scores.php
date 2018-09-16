@@ -17,7 +17,7 @@
 		$game = $scores->{$date};
 		$week = getweek(strtotime(substr($date, 0, 8)));
 
-		if ($game->qtr != 'Final') {
+		if ($game->qtr != 'Final' && $game->qtr != 'final overtime') {
 			continue;
 		}
 
