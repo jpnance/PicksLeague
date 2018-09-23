@@ -16,6 +16,10 @@
 	background-image: url("logos/arsenal.png");
 }
 
+#bigboard .astros {
+	background-image: url("logos/astros.png");
+}
+
 #bigboard .avfc {
 	background-image: url("logos/avfc.png");
 }
@@ -30,6 +34,10 @@
 
 #bigboard .buckeyes {
 	background-image: url("logos/buckeyes.png");
+}
+
+#bigboard .buffaloes {
+	background-image: url("logos/buffaloes.png");
 }
 
 #bigboard .cardiffcity {
@@ -64,8 +72,16 @@
 	background-image: url("logos/ct.png");
 }
 
+#bigboard .cubs {
+	background-image: url("logos/cubs.png");
+}
+
 #bigboard .diamondjaxx {
 	background-image: url("logos/diamondjaxx.png");
+}
+
+#bigboard .dodgers {
+	background-image: url("logos/dodgers.png");
 }
 
 #bigboard .dolphins1997 {
@@ -82,6 +98,10 @@
 
 #bigboard .flyingtigers {
 	background-image: url("logos/flyingtigers.png");
+}
+
+#bigboard .gryffindor {
+	background-image: url("logos/gryffindor.png");
 }
 
 #bigboard .hokies {
@@ -108,6 +128,18 @@
 	background-image: url("logos/nittanylions.png");
 }
 
+#bigboard .nycfc {
+	background-image: url("logos/nycfc.png");
+}
+
+#bigboard .oilers {
+	background-image: url("logos/oilers.png");
+}
+
+#bigboard .pacquiao {
+	background-image: url("logos/pacquiao.png");
+}
+
 #bigboard .panthers1995 {
 	background-image: url("logos/panthers1995.png");
 }
@@ -118,6 +150,18 @@
 
 #bigboard .pirates {
 	background-image: url("logos/pirates.png");
+}
+
+#bigboard .purplecobras {
+	background-image: url("logos/purplecobras.png");
+}
+
+#bigboard .rage {
+	background-image: url("logos/rage.png");
+}
+
+#bigboard .rangers {
+	background-image: url("logos/rangers.png");
 }
 
 #bigboard .realmadrid {
@@ -152,8 +196,16 @@
 	background-image: url("logos/stars.png");
 }
 
+#bigboard .terrapins {
+	background-image: url("logos/terrapins.png");
+}
+
 #bigboard .tigers {
 	background-image: url("logos/tigers.png");
+}
+
+#bigboard .timbers {
+	background-image: url("logos/timbers.png");
 }
 
 #bigboard .tottenham {
@@ -174,10 +226,6 @@
 
 #bigboard .yankees {
 	background-image: url("logos/yankees.png");
-}
-
-#bigboard .astros {
-	background-image: url("logos/astros.png");
 }
 
 #bigboard .niners {
