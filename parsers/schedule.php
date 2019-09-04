@@ -20,7 +20,7 @@
 		$teamspattern = '/<abbr.*?>(.*?)<\/abbr>/';
 		$timepattern = '/data-date="(.*?)"/';
 
-		if (sizeof($page) != 0) {
+		if (strlen($page) != 0) {
 			preg_match_all($tablepattern, $page, $tablematch);
 
 			foreach($tablematch[0] as $table) {
