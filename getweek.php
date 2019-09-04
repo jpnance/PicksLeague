@@ -22,7 +22,8 @@
 			//$diff = $time - mktime(0,0,0,9,9,2015);
 			//$diff = $time - mktime(0,0,0,9,7,2016);
 			//$diff = $time - mktime(0,0,0,9,6,2017);
-			$diff = $time - mktime(0,0,0,9,5,2018);
+			//$diff = $time - mktime(0,0,0,9,5,2018);
+			$diff = $time - mktime(0,0,0,9,4,2019);
 
 			// How many days we've gone since the start
 			$days = intval($diff / 86400);
