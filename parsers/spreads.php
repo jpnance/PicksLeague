@@ -16,10 +16,12 @@
 				"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:56.0) Gecko/20100101 Firefox/56.0",
 				"Accept: */*",
 				"Accept-Language: en-US,en;q=0.5",
-				"Accept-Encoding: gzip, deflate",
-				"Referer: http://www.oddsshark.com/",
+				"Accept-Encoding: gzip, deflate, br",
+				"Referer: http://www.oddsshark.com/nfl/odds",
 				"origin: http://www.oddsshark.com",
-				"Connection: keep-alive"
+				"Cache-Control: max-age=0",
+				"Connection: keep-alive",
+				"TE: Trailers"
 			])
 		]
 	];
@@ -34,7 +36,7 @@
 
 	$oddsJson = json_decode($page);
 
-	if (count($oddsJson->matchups) != 0) {
+	if ($oddsJson && $oddsJson->matchups && count($oddsJson->matchups) != 0) {
 		foreach ($oddsJson->matchups as $game) {
 			if ($game->type != 'matchup') {
 				continue;
@@ -70,6 +72,11 @@
 			}
 
 			$week = getweek(strtotime($date . " " . ($season + (preg_match('/-01-/', $date) ? 1 : 0))));
+
+			if ($week < 1 || $week > 17) {
+				continue;
+			}
+
 			$query = "CALL update_game('{$homeTeam}', '{$awayTeam}', {$season}, {$week}, '{$startTimeUtc}', NULL, NULL, {$spread});";
 
 			if ($query != "NULL") {
