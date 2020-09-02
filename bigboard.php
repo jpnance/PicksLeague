@@ -23,6 +23,7 @@ ob_start();
 		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<title><?php if ($week != 0) { ?>Week <?= $week ?><?php } else { ?>Preseason<?php } ?> &laquo; The Picks League &laquo; Coinflipper</title>
 		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+		<link href="https://fonts.googleapis.com/css?family=Biryani:900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?= $style ?>.css" />
 		<script type="text/javascript" src="misc.js"></script>
 		<script type="text/javascript" src="changepick.js"></script>
@@ -78,7 +79,8 @@ ob_start();
 		$team = $user_row['favorite_team'];
 		$nickname = $user_row['nick_name'];
 
-		echo "\t\t\t\t<td class=\"user " . $team . " " . $self . "\" width=\"4%\" onclick=\"viewProfile('" . $nickname . "')\"><img src=\"nameplates/" . strtolower($nickname) . ".png\" alt=\"" . $nickname . "\"/></td>\n";
+		#echo "\t\t\t\t<td class=\"user " . $team . " " . $self . "\" width=\"4%\" onclick=\"viewProfile('" . $nickname . "')\"><img src=\"nameplates/" . strtolower($nickname) . ".png\" alt=\"" . $nickname . "\"/></td>\n";
+		echo "\t\t\t\t<td class=\"user " . $team . " " . $self . "\" style=\"height: 100px;\" width=\"4%\" onclick=\"viewProfile('" . $nickname . "')\"><span class=\"nickname\">" . $nickname . "</span></td>\n";
 	}
 	echo "\t\t\t</tr>\n";
 
