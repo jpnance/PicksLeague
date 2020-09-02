@@ -1,6 +1,6 @@
 <?php
-	$season = 2019;
-	$cookieExpirationTime = strtotime("January 31, 2020");
+	$season = 2020;
+	$cookieExpirationTime = strtotime("January 31, 2021");
 
 	$teamsarray = Array(
 		'Arizona'	=> 'ARI',	'ARI'	=> 'Arizona',
@@ -24,6 +24,7 @@
 		'LA Chargers'	=> 'LAC',	'LAC'	=> 'LA Chargers',
 		'L.A. Rams'	=> 'LAR',
 		'LA Rams'	=> 'LAR',	'LAR'	=> 'LA Rams',
+		'Las Vegas'	=> 'LV',	'LV'	=> 'Las Vegas',
 		'Miami'		=> 'MIA',	'MIA'	=> 'Miami',
 		'Minnesota'	=> 'MIN',	'MIN'	=> 'Minnesota',
 		'New England'	=> 'NE',	'NE'	=> 'New England',
