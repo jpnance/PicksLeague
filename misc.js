@@ -1,11 +1,6 @@
 function picksFocus() {
 	if (document.getElementById('loginBox').style.visibility != 'hidden') {
-		if (document.getElementById('username').value == '') {
-			document.getElementById('username').focus();
-		}
-		else {
-			document.getElementById('password').focus();
-		}
+		document.getElementById('email').focus();
 	}
 }
 
