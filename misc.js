@@ -20,3 +20,28 @@ function toggleVisibility(e) {
 		e.style.display = "";
 	}
 }
+
+$(document).ready(function() {
+	$('form#loginnav').on('submit', function(e) {
+		var $form = $(e.currentTarget);
+		var $button = $form.find('input');
+
+		e.preventDefault();
+
+		$.post($form.attr('action'), $form.serializeArray(), function() {
+			window.location = '/bigboard.php?success=email-sent';
+		}).fail(function(response) {
+			if (response.status == 400) {
+				window.location = '/bigboard.php?error=invalid-email';
+			}
+			else if (response.status == 404) {
+				window.location = '/bigboard.php?error=not-found';
+			}
+			else {
+				window.location = '/bigboard.php?error=unknown';
+			}
+		});
+
+		$button.attr('disabled', true);
+	});
+});

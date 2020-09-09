@@ -26,6 +26,7 @@ ob_start();
 		<link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
 		<link href="https://fonts.googleapis.com/css?family=Biryani:900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?= $style ?>.css" />
+		<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="misc.js"></script>
 		<script type="text/javascript" src="changepick.js"></script>
 	</head>

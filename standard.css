@@ -31,7 +31,8 @@ h1 {
 	letter-spacing: -1px;
 }
 
-.saved {
+.saved,
+.check-email {
 	font-weight: bold;
 	font-size: 75%;
 	color: green;

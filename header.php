@@ -10,13 +10,34 @@
 					</td>
 
 					<td id="loginBox" style="visibility: hidden;">
+<?php } else if (isset($_GET['success']) && $_GET['success'] == 'email-sent') { ?>
+					<td id="check-email" class="check-email">
+						Check your email for your login link!
+					</td>
+
+					<td id="loginBox" style="visibility: hidden;">
 <?php } else { ?>
 					<td id="loginBox">
 <?php } ?>
 						<table>
 							<tr>
 								<td id="left">
-									<input id="email" name="email" type="text" placeholder="Email Address" />
+									<?php
+										$placeholder = 'Email Address';
+
+										if (isset($_GET['error'])) {
+											if ($_GET['error'] == 'invalid-email') {
+												$placeholder = 'Invalid Email Address';
+											}
+											else if ($_GET['error'] == 'not-found') {
+												$placeholder = 'Unknown Email Address';
+											}
+											else {
+												$placeholder = 'Unknown Error';
+											}
+										}
+									?>
+									<input id="email" name="email" type="text" placeholder="<?= $placeholder; ?>" <?php if (isset($_GET['error'])) echo "style=\"background-color: rgb(265, 183, 183);\""; ?> />
 									<!--
 									<input id="username" name="username" type="text" size="15" value="<?= isset($_COOKIE['lastlogin']) ? htmlspecialchars($_COOKIE['lastlogin']) : '' ?>"<?php if (isset($_SESSION['invalidLogin']) && $_SESSION['invalidLogin'] != "") echo " style=\"background-color: rgb(265, 183, 183);\""; ?> /><br />
 									<input id="password" name="password" type="password" size="15"<?php if (isset($_SESSION['invalidLogin']) && $_SESSION['invalidLogin'] != "") echo " style=\"background-color: rgb(265, 183, 183);\""; ?> />
