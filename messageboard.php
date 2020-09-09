@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	//session_start();
+	include("session.php");
 	include("config.php");
 	include("connect.php");
 	include("misc.php");

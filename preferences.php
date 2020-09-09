@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	//session_start();
+	include("session.php");
 	include("config.php");
 	include("connect.php");
 	include("style.php");
@@ -132,10 +133,12 @@
 <?php if ($_SESSION['username']) { ?>
 		<form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
 			<table class="fancyTable" cellspacing="0">
+				<!--
 				<tr class="top">
 					<td class="field">Username</td>
 					<td class="value"><?= $username ?></td>
 				</tr>
+				-->
 
 				<tr>
 					<td class="field">Full Name</td>
@@ -147,6 +150,7 @@
 					<td class="value"><?= $location ?></td>
 				</tr>
 
+				<!--
 				<tr>
 					<td class="field"><label for="pw">Password</label></td>
 					<td class="value">
@@ -155,6 +159,7 @@
 						<input type="password" name="password2" size="20" />
 					</td>
 				</tr>
+				-->
 
 				<tr>
 					<td class="field"><label for="tz">Time Zone</label></td>
@@ -170,11 +175,14 @@
 					</td>
 				</tr>
 
+				<!--
 				<tr>
 					<td class="field"><label for="em">Email</label></td>
 					<td class="value"><input type="text" name="email" maxlength="100" size="40" id="em" value="<?= $email ?>" /></td>
 				</tr>
+				-->
 
+				<!--
 				<tr>
 					<td class="field"><label for="ph">Phone</label></td>
 
@@ -184,6 +192,7 @@
 						<input type="text" name="suffix" class="phone" maxlength="4" size="5" value="<?= $suffix ?>" />
 					</td>
 				</tr>
+				-->
 
 				<tr>
 					<td class="field"><label for="ft">Favorite Team</label></td>

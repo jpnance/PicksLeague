@@ -5,10 +5,11 @@ $time = $time[1] + $time[0];
 $start = $time;
 
 ob_start();
-	session_start();
+	//session_start();
 //	include("login.php");
 	include("config.php");
 	include("connect.php");
+	include("session.php");
 	include("timezone.php");
 	include("misc.php");
 	include("getweek.php");
