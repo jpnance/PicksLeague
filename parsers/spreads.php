@@ -13,7 +13,7 @@
 		'http' => [
 			'header' => implode("\r\n", [
 				"Host: io.oddsshark.com",
-				"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:56.0) Gecko/20100101 Firefox/56.0",
+				"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
 				"Accept: */*",
 				"Accept-Language: en-US,en;q=0.5",
 				"Accept-Encoding: gzip, deflate, br",
@@ -28,7 +28,7 @@
 
 	$context = stream_context_create($headers);
 
-	$page = file_get_contents("http://io.oddsshark.com/ticker/nfl", false, $context);
+	$page = file_get_contents("https://io.oddsshark.com/ticker/nfl", false, $context);
 
 	if ($page === false) {
 		exit(-1);
