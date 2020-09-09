@@ -38,6 +38,10 @@ h1 {
 	color: green;
 }
 
+.check-email {
+	text-align: left;
+}
+
 label {
 	cursor: pointer;
 }
@@ -88,10 +92,15 @@ form#loginnav {
 }
 
 #header #login,
-#header #logout {
+#header #log-out-here,
+#header #log-out-all {
 	background-image: url("images/bg.png");
 	background-color: rgb(170, 170, 170);
 	background-repeat: repeat-x;
+}
+
+#header span.log-out {
+	font-size: 60%;
 }
 
 #header #currentTime {

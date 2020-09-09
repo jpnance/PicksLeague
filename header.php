@@ -6,16 +6,16 @@
 				<tr>
 <?php if (isset($_SESSION['username']) && $_SESSION['username'] != "") { ?>
 					<td id="welcome">
-						Welcome, <b><?= $_SESSION['nickname'] ?></b>!&nbsp;&nbsp;<input type="submit" id="logout" name="signout" value="Sign Out" />
+						Welcome, <b><?= $_SESSION['nickname'] ?></b>!<br /><span class="log-out">Log Out: <a href="https://login.coinflipper.org/sessions/delete">This Device</a> | <a href="https://login.coinflipper.org/sessions/deleteAll">All Devices</a></span>
 					</td>
 
-					<td id="loginBox" style="visibility: hidden;">
+					<td id="loginBox" style="display: none; visibility: hidden;">
 <?php } else if (isset($_GET['success']) && $_GET['success'] == 'email-sent') { ?>
 					<td id="check-email" class="check-email">
 						Check your email for your login link!
 					</td>
 
-					<td id="loginBox" style="visibility: hidden;">
+					<td id="loginBox" style="display: none; visibility: hidden;">
 <?php } else { ?>
 					<td id="loginBox">
 <?php } ?>
