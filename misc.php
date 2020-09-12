@@ -148,6 +148,7 @@
 			case 'NWE': return 'NE'; break;
 			case 'SFO': return 'SF'; break;
 			case 'TAM': return 'TB'; break;
+			case 'WSH': return 'WAS'; break;
 			default: return $abbreviation;
 		}
 	}
