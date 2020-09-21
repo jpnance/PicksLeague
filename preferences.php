@@ -204,6 +204,7 @@
 							<option value="arsenal"<?php if ($favoriteteam == "arsenal") echo " selected=\"selected\""; ?>>Arsenal</option>
 							<option value="astros"<?php if ($favoriteteam == "astros") echo " selected=\"selected\""; ?>>Astros</option>
 							<option value="avfc"<?php if ($favoriteteam == "avfc") echo " selected=\"selected\""; ?>>Aston Villa</option>
+							<option value="austinfc"<?php if ($favoriteteam == "austinfc") echo " selected=\"selected\""; ?>>Austin FC</option>
 							<option value="blues"<?php if ($favoriteteam == "blues") echo " selected=\"selected\""; ?>>Blues</option>
 							<option value="buccaneers1976"<?php if ($favoriteteam == "buccaneers1976") echo " selected=\"selected\""; ?>>Buccaneers (1976)</option>
 							<option value="buckeyes"<?php if ($favoriteteam == "buckeyes") echo " selected=\"selected\""; ?>>Buckeyes</option>
@@ -226,6 +227,7 @@
 							<option value="gryffindor"<?php if ($favoriteteam == "gryffindor") echo " selected=\"selected\""; ?>>Gryffindor</option>
 							<option value="hokies"<?php if ($favoriteteam == "hokies") echo " selected=\"selected\""; ?>>Hokies</option>
 							<option value="jaguars1995"<?php if ($favoriteteam == "jaguars1995") echo " selected=\"selected\""; ?>>Jaguars (1995)</option>
+							<option value="lakers"<?php if ($favoriteteam == "lakers") echo " selected=\"selected\""; ?>>Lakers</option>
 							<option value="lions2003"<?php if ($favoriteteam == "lions2003") echo " selected=\"selected\""; ?>>Lions (2003)</option>
 							<option value="longhorns"<?php if ($favoriteteam == "longhorns") echo " selected=\"selected\""; ?>>Longhorns</option>
 							<option value="mavericks"<?php if ($favoriteteam == "mavericks") echo " selected=\"selected\""; ?>>Mavericks</option>
@@ -245,6 +247,7 @@
 							<option value="revolution"<?php if ($favoriteteam == "revolution") echo " selected=\"selected\""; ?>>Revolution</option>
 							<option value="sabres"<?php if ($favoriteteam == "sabres") echo " selected=\"selected\""; ?>>Sabres</option>
 							<option value="seahawks2002"<?php if ($favoriteteam == "seahawks2002") echo " selected=\"selected\""; ?>>Seahawks (2002)</option>
+							<option value="stars1994"<?php if ($favoriteteam == "stars1994") echo " selected=\"selected\""; ?>>Stars (1994)</option>
 							<option value="stars"<?php if ($favoriteteam == "stars") echo " selected=\"selected\""; ?>>Stars</option>
 							<option value="stallions"<?php if ($favoriteteam == "stallions") echo " selected=\"selected\""; ?>>Stallions</option>
 							<option value="terrapins"<?php if ($favoriteteam == "terrapins") echo " selected=\"selected\""; ?>>Terrapins</option>
@@ -253,6 +256,7 @@
 							<option value="tottenham"<?php if ($favoriteteam == "tottenham") echo " selected=\"selected\""; ?>>Tottenham</option>
 							<option value="usmnt"<?php if ($favoriteteam == "usmnt") echo " selected=\"selected\""; ?>>USMNT</option>
 							<option value="vikings1966"<?php if ($favoriteteam == "vikings1966") echo " selected=\"selected\""; ?>>Vikings (1966)</option>
+							<option value="wolverines"<?php if ($favoriteteam == "wolverines") echo " selected=\"selected\""; ?>>Wolverines</option>
 							<option value="wranglers"<?php if ($favoriteteam == "wranglers") echo " selected=\"selected\""; ?>>Wranglers</option>
 							<option value="yankees"<?php if ($favoriteteam == "yankees") echo " selected=\"selected\""; ?>>Yankees</option>
 							<option value="<?= $favoriteteam ?>">--------</option>
@@ -271,6 +275,7 @@
 							<option value="dolphins"<?php if ($favoriteteam == "dolphins") echo " selected=\"selected\""; ?>>Dolphins</option>
 							<option value="eagles"<?php if ($favoriteteam == "eagles") echo " selected=\"selected\""; ?>>Eagles</option>
 							<option value="falcons"<?php if ($favoriteteam == "falcons") echo " selected=\"selected\""; ?>>Falcons</option>
+							<option value="footballteam"<?php if ($favoriteteam == "footballteam") echo " selected=\"selected\""; ?>>Football Team</option>
 							<option value="giants"<?php if ($favoriteteam == "giants") echo " selected=\"selected\""; ?>>Giants</option>
 							<option value="jaguars"<?php if ($favoriteteam == "jaguars") echo " selected=\"selected\""; ?>>Jaguars</option>
 							<option value="jets"<?php if ($favoriteteam == "jets") echo " selected=\"selected\""; ?>>Jets</option>
@@ -281,7 +286,6 @@
 							<option value="raiders"<?php if ($favoriteteam == "raiders") echo " selected=\"selected\""; ?>>Raiders</option>
 							<option value="rams"<?php if ($favoriteteam == "rams") echo " selected=\"selected\""; ?>>Rams</option>
 							<option value="ravens"<?php if ($favoriteteam == "ravens") echo " selected=\"selected\""; ?>>Ravens</option>
-							<option value="redskins"<?php if ($favoriteteam == "redskins") echo " selected=\"selected\""; ?>>Redskins</option>
 							<option value="saints"<?php if ($favoriteteam == "saints") echo " selected=\"selected\""; ?>>Saints</option>
 							<option value="seahawks"<?php if ($favoriteteam == "seahawks") echo " selected=\"selected\""; ?>>Seahawks</option>
 							<option value="steelers"<?php if ($favoriteteam == "steelers") echo " selected=\"selected\""; ?>>Steelers</option>

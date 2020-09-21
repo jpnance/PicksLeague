@@ -20,6 +20,10 @@
 	background-image: url("logos/astros.png");
 }
 
+#bigboard .austinfc {
+	background-image: url("logos/austinfc.png");
+}
+
 #bigboard .avfc {
 	background-image: url("logos/avfc.png");
 }
@@ -112,6 +116,10 @@
 	background-image: url("logos/jaguars1995.png");
 }
 
+#bigboard .lakers {
+	background-image: url("logos/lakers.png");
+}
+
 #bigboard .lions2003 {
 	background-image: url("logos/lions2003.png");
 }
@@ -192,6 +200,10 @@
 	background-image: url("logos/stallions.png");
 }
 
+#bigboard .stars1994 {
+	background-image: url("logos/stars1994.png");
+}
+
 #bigboard .stars {
 	background-image: url("logos/stars.png");
 }
@@ -218,6 +230,10 @@
 
 #bigboard .vikings1966 {
 	background-image: url("logos/vikings1966.png");
+}
+
+#bigboard .wolverines {
+	background-image: url("logos/wolverines.png");
 }
 
 #bigboard .wranglers {
@@ -288,6 +304,10 @@
 	background-image: url("logos/falcons.png");
 }
 
+#bigboard .footballteam {
+	background-image: url("logos/footballteam.png");
+}
+
 #bigboard .giants {
 	background-image: url("logos/giants.png");
 }
@@ -334,10 +354,6 @@
 
 #bigboard .ravens {
 	background-image: url("logos/ravens.png");
-}
-
-#bigboard .redskins {
-	background-image: url("logos/redskins.png");
 }
 
 #bigboard .saints {
