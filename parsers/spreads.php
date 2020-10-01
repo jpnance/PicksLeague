@@ -73,7 +73,7 @@
 
 			$week = getweek(strtotime($date . " " . ($season + (preg_match('/-01-/', $date) ? 1 : 0))));
 
-			if ($week < 1 || $week > 17) {
+			if ($week < getweek() || $week < 1 || $week > 17) {
 				continue;
 			}
 
