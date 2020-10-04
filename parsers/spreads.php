@@ -77,7 +77,7 @@
 				continue;
 			}
 
-			$query = "CALL update_game('{$homeTeam}', '{$awayTeam}', {$season}, {$week}, '{$startTimeUtc}', NULL, NULL, {$spread});";
+			$query = "CALL update_game('{$homeTeam}', '{$awayTeam}', {$season}, {$week}, NULL, NULL, NULL, {$spread});";
 
 			if ($query != "NULL") {
 				echo $query . "\n";

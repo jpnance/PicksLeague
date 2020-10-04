@@ -27,17 +27,21 @@
 		$awayTeam->abbreviation = normalizeAbbreviation($awayTeam->abbreviation);
 		$homeTeam->abbreviation = normalizeAbbreviation($homeTeam->abbreviation);
 
+		$startTimeUtc = gmdate('Y-m-d H:i:s', strtotime($competition->date));
+
 		if ($competition->status->type->name != 'STATUS_FINAL') {
-			continue;
+			$awayScore = 'NULL';
+			$homeScore = 'NULL';
+		}
+		else {
+			$score0 = intval($competition->competitors[0]->score);
+			$score1 = intval($competition->competitors[1]->score);
+
+			$awayScore = ($awayTeam->id == $team0->id) ? $score0 : $score1;
+			$homeScore = ($homeTeam->id == $team0->id) ? $score0 : $score1;
 		}
 
-		$score0 = intval($competition->competitors[0]->score);
-		$score1 = intval($competition->competitors[1]->score);
-
-		$awayScore = ($awayTeam->id == $team0->id) ? $score0 : $score1;
-		$homeScore = ($homeTeam->id == $team0->id) ? $score0 : $score1;
-
-		$query = "CALL update_game('" . $homeTeam->abbreviation . "', '" . $awayTeam->abbreviation . "', " . $season . ", " . $week . ", NULL, " . $homeScore . ", " . $awayScore . ", NULL);";
+		$query = "CALL update_game('" . $homeTeam->abbreviation . "', '" . $awayTeam->abbreviation . "', " . $season . ", " . $week . ", '" . $startTimeUtc . "', " . $homeScore . ", " . $awayScore . ", NULL);";
 
 		if ($argc > 1 && $argv[1] == 'update') {
 			mysqli_query($link, $query);
