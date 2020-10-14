@@ -29,7 +29,10 @@
 
 		$startTimeUtc = gmdate('Y-m-d H:i:s', strtotime($competition->date));
 
-		if ($competition->status->type->name != 'STATUS_FINAL') {
+		if ($competition->status->type->name == 'STATUS_POSTPONED') {
+			continue;
+		}
+		else if ($competition->status->type->name != 'STATUS_FINAL') {
 			$awayScore = 'NULL';
 			$homeScore = 'NULL';
 		}
