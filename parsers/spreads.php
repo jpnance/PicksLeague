@@ -42,6 +42,10 @@
 				continue;
 			}
 
+			if ($game->status == 'FINAL') {
+				continue;
+			}
+
 			$query = "NULL";
 			
 			$date = $game->event_date;
