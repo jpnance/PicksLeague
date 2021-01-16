@@ -3,8 +3,10 @@
 $sessionKey = $_COOKIE['sessionKey'];
 
 if ($sessionKey) {
-	$ch = curl_init('https://login.coinflipper.org/sessions/retrieve/' . $sessionKey);
+	$ch = curl_init('https://login.coinflipper.org/sessions/retrieve');
 
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_POSTFIELDS, 'key=' . $sessionKey);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 	$jsonString = curl_exec($ch);
